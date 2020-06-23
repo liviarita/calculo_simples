@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculando</title>
+        <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+
+        <style type="text/css">
+
+            body {
+                background-color: #819FF7;
+                font-family: 'Source Sans Pro', sans-serif;
+                color: #A9D0F5;
+                
+            }
+            h1 {
+                font-family: 'Krona One', sans-serif;
+                text-align: center;
+                color: #0B0B61;
+                box-shadow: 5px 5px 20px #0B0B61;
+            }
+            input, select{
+                font-family: 'Source Sans Pro', sans-serif;
+                color: #0B0B61;
+            }
+            
+            #cal {
+                background-color: #2E2EFE;
+                border-radius: 10px;
+                padding: 20px;
+                margin: 0 135px;
+                width: 350px;
+                text-align: center;
+            }
+            img {
+                margin-top: 20px;
+                max-width: 150px;
+                max-height: 150px;
+                width: auto;
+                height: auto;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 10px;
+                box-shadow: 5px 5px 5px black;
+                
+            }
+
+        </style>
+    </head>
+
+    <body>
+        
+        <h1>CALCULANDO</h1>
+        
+        <div id="cal">
+            <span>Digite o primeiro número</span>
+            <input type="number" value="" id="num1"><br><br>
+            <span>Digite segundo número</span>
+            <input type="number" value="" id="num2"><br><br>
+            <form name="operac" action="">
+            <span>Escolha a operação</span>
+            <select name="operacoes" id="op">
+                <option  value="soma">SOMA</option>
+                <option  value="sub">SUBTRAÇÃO</option>
+                <option  value="mult">MULTIPLICAÇÃO</option>
+                <option  value="div">DIVISÃO</option>
+            </select><br><br>
+            </form>
+            <input type="button" value="RESULTADO" onclick="calculo()"><br><br>
+            <input id="res" type="text" value="O resultado é ...">
+            <input type="button" value="LIMPAR" onclick="limpar()">
+        </div>
+
+        <img src="imagens/legal.png" alt="">
+
+        
+
+
+
+        <script>
+
+            function calculo() {
+                var num01 = Number(document.getElementById('num1').value);
+                var num02 = Number(document.getElementById('num2').value);
+                var operacao = document.operac.operacoes.value;
+                var calc = "";
+                var resultado = document.getElementById('res');
+                if (operacao == 'soma') {
+                    calc = num01 + num02;
+                }
+                else if (operacao == 'sub') {
+                    calc = num01 - num02;
+                }
+                else if (operacao == 'mult') {
+                    calc = num01 * num02;
+                }
+                else {
+                    calc = num01 / num02;
+                }
+                resultado.value = calc;
+            }
+
+            function limpar() {
+                document.getElementById('num1').value = "";
+                document.getElementById('num2').value = "";
+                document.getElementById('res').value = "O resultado é ...";
+            }
+
+        </script>
+
+    </body>
+
+</html>
